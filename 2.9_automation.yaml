@@ -1,0 +1,64 @@
+alias: ePaper - calendar countdown
+description: "https://github.com/svenove/OpenEPaperLink-HA-Calendar-Countdown/"
+trigger:
+  - platform: time
+    at: "01:11:00"
+action:
+  - variables:
+      days: >-
+        {{(state_attr('calendar.epaper_countdown', 'start_time') | as_datetime |
+        as_local - today_at()).days}}
+      days_txt: >-
+        {% set d = (state_attr('calendar.epaper_countdown', 'start_time') |
+        as_datetime | as_local - today_at()).days %} {{ {0:'Today',
+        1:'Tomorrow'}.get(d, d~' days') }}
+      icon: "{{state_attr('calendar.epaper_countdown', 'description')}}"
+      event: "{{state_attr('calendar.epaper_countdown', 'message')}}"
+  - service: open_epaper_link.drawcustom
+    data:
+      ttl: 60
+      background: white
+      rotate: 0
+      dry-run: true
+      payload:
+        - type: icon
+          value: "{{ icon }}"
+          x: 15
+          "y": 20
+          color: "{{'black' if days > 2 else 'red'}}"
+          size: 90
+        - type: text
+          value: "{{days_txt if days < 2}}"
+          font: ppb.ttf
+          x: 200
+          "y": 60
+          size: 40
+          color: red
+          anchor: mm
+        - type: text
+          value: "{{days if days > 1}}"
+          font: ppb.ttf
+          x: 200
+          "y": 45
+          size: 80
+          color: red
+          anchor: mm
+        - type: text
+          value: "{{'days until' if days > 1}}"
+          font: ppb.ttf
+          x: 200
+          "y": 90
+          size: 20
+          color: black
+          anchor: mm
+        - type: text
+          value: "{{ event }}"
+          font: ppb.ttf
+          x: 200
+          "y": 113
+          size: 20
+          color: "{{'black' if days > 2 else 'red'}}"
+          anchor: mm
+    target:
+      entity_id: open_epaper_link.0000021f49543b19
+mode: restart
