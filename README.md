@@ -10,7 +10,7 @@ Inspired by [chunkysteveo's Christmas Countdown](https://github.com/chunkysteveo
 
 ## Initial setup
 1. Add the integration "Local calendar" and name the calendar "epaper_countdown".
-2. Create a new automation from the 2.9_automation.yaml (remember to replace the eTag-entity and any local translations of the few words in it). 
+2. Create a new automation from the (2.9_automation.yaml)[https://github.com/svenove/OpenEPaperLink-HA-Calendar-Countdown/blob/main/2.9_automation.yaml] (remember to replace the eTag-entity and any local translations of the few words in it). 
 3. From the sidebar, go to "calendar" and add a few events:
 * Summary: the name of the event
 * Description: The [MDI-icon](https://pictogrammers.com/library/mdi/) to use
