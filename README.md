@@ -1,5 +1,5 @@
 # OpenEPaperLink-HA-Calendar-Countdown
-Inspired by [chunkysteveo's Christmas Countdown](https://github.com/chunkysteveo/OpenEPaperLink-HA-Christmas-Countdown), I created a more general countdown, which utilizes the HASS local calendar.
+Inspired by [chunkysteveo's Christmas Countdown](https://github.com/chunkysteveo/OpenEPaperLink-HA-Christmas-Countdown), I created a more general countdown, which utilizes the HASS local calendar to count down to whatever is next.
 
 ![2023-12-25 23 04 56](https://github.com/svenove/OpenEPaperLink-HA-Calendar-Countdown/assets/4579212/6dc3b883-bdb2-4523-bbb5-b168683d04ea)
 
