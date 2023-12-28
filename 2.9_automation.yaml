@@ -19,7 +19,7 @@ action:
       ttl: 60
       background: white
       rotate: 0
-      dry-run: true
+      dry-run: false
       payload:
         - type: icon
           value: "{{ icon }}"
