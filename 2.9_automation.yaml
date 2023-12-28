@@ -25,7 +25,7 @@ action:
           value: "{{ icon }}"
           x: 15
           "y": 20
-          color: "{{'black' if days > 2 else 'red'}}"
+          color: "{{'black' if days > 1 else 'red'}}"
           size: 90
         - type: text
           value: "{{days_txt if days < 2}}"
@@ -57,7 +57,7 @@ action:
           x: 200
           "y": 113
           size: 20
-          color: "{{'black' if days > 2 else 'red'}}"
+          color: "{{'black' if days > 1 else 'red'}}"
           anchor: mm
     target:
       entity_id: open_epaper_link.0000021f49543b19
