@@ -12,7 +12,12 @@ action:
         {% set d = (state_attr('calendar.epaper_countdown', 'start_time') |
         as_datetime | as_local - today_at()).days %} {{ {0:'Today',
         1:'Tomorrow'}.get(d, d~' days') }}
-      icon: "{{state_attr('calendar.epaper_countdown', 'description')}}"
+      icon: |-
+        {% if not state_attr('calendar.epaper_countdown', 'description') %}
+          calendar-arrow-right
+        {% else %}
+          {{ state_attr('calendar.epaper_countdown', 'description') }}
+        {% endif %}
       event: "{{state_attr('calendar.epaper_countdown', 'message')}}"
   - service: open_epaper_link.drawcustom
     data:
