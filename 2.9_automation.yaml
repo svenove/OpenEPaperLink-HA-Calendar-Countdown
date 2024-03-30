@@ -10,8 +10,7 @@ action:
         as_local - today_at()).days}}
       days_txt: >-
         {% set d = (state_attr('calendar.epaper_countdown', 'start_time') |
-        as_datetime | as_local - today_at()).days %} {{ {0:'Today',
-        1:'Tomorrow'}.get(d, d~' days') }}
+        as_datetime | as_local - today_at()).days %} {{ 'Today' if d <= 0 else {1:'Tomorrow'}.get(d, d~' days') }}
       icon: |-
         {% if not state_attr('calendar.epaper_countdown', 'description') %}
           calendar-arrow-right
