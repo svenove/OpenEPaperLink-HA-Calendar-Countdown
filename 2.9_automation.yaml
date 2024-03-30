@@ -25,6 +25,15 @@ action:
       rotate: 0
       dry-run: false
       payload:
+        - type: text
+          value: >-
+            {{['Mon','Tue','Wed','THu','Fri','Sat','Sun'][now().weekday()]}}
+            {{(now()|as_timestamp)|timestamp_custom('%H:%M', True) }}
+          font: ppb.ttf
+          x: 3
+          "y": 3
+          size: 11
+          color: black
         - type: icon
           value: "{{ icon }}"
           x: 15
